@@ -1,34 +1,30 @@
 <!DOCTYPE html>
- <html lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO Meta Tags -->
   <meta name="description" content="Free loan calculator for mortgages, car loans, and personal loans. Calculate monthly payments instantly.">
   <meta name="keywords" content="loan calculator, mortgage calculator, car loan calculator, personal loan calculator, financial tool, monthly payment calculator">
   <meta name="author" content="Your Name">
 
   <title>Free Loan Calculator - Monthly Payments</title>
 
-  <!-- Open Graph Tags -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Free Loan Calculator - Monthly Payments" />
   <meta property="og:description" content="Instantly calculate monthly payments for mortgages, auto, and personal loans. Free, fast, and easy to use!" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mili1102.github.io/LoanCalcWeb/" />
   <meta property="og:image" content="https://mili1102.github.io/LoanCalcWeb/preview.png" />
 
-  <!-- Twitter Card Tags -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Free Loan Calculator - Monthly Payments" />
   <meta name="twitter:description" content="Instantly calculate monthly payments for mortgages, auto, and personal loans. Free, fast, and easy to use!" />
   <meta name="twitter:url" content="https://mili1102.github.io/LoanCalcWeb/" />
   <meta name="twitter:image" content="https://mili1102.github.io/LoanCalcWeb/preview.png" />
 
-  <!-- Favicon (Optional) -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Schema.org JSON-LD -->
+  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,106 +42,250 @@
   }
   </script>
 
-  <!-- Your original internal CSS remains untouched -->
-  <style>
-  body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 15px;
-    background-color: #f8f9fa;
-    color: #444;
-    line-height: 1.6;
-  }
-</style>
-</head>
+  <!-- Optional Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
- <body>
-   <h1>Free Loan Calculator</h1>
-   <div class="pitch">
-     <p>Calculate monthly payments for mortgages, car loans, or personal loans with our free loan calculator!</p>
-     <ul>
-       <li>🏠 Mortgage payments</li>
-       <li>🚗 Car loans</li>
-       <li>💸 Personal loans</li>
-       <li>📊 Loan comparisons</li>
-     </ul>
-   </div>
-   <div class="calculator">
-     <label for="currency">Currency:</label>
-     <select id="currency">
-       <option value="$">USD ($)</option>
-       <option value="€">EUR (€)</option>
-       <option value="£">GBP (£)</option>
-       <option value="₹">INR (₹)</option>
-       <option value="¥">JPY (¥)</option>
-       <option value="A$">AUD (A$)</option>
-       <option value="C$">CAD (C$)</option>
-     </select>
-     <label for="principal">Loan Amount:</label>
-     <input type="number" id="principal" placeholder="e.g., 200000">
-     <label for="rate">Annual Interest Rate (%):</label>
-     <input type="number" id="rate" placeholder="e.g., 5" step="0.1">
-     <label for="years">Loan Term (years):</label>
-     <input type="number" id="years" placeholder="e.g., 30">
-     <button onclick="calculate()">Calculate</button>
-     <p id="result"></p>
-     <details>
-       <summary>How We Calculate</summary>
-       <p>
-         Uses the fixed-rate loan formula:
-         <br><br>
-         <strong>M = P × [r(1+r)^n] / [(1+r)^n - 1]</strong>
-         <br><br>
-         Where:
-         <ul>
-           <li><strong>M</strong>: Monthly payment</li>
-           <li><strong>P</strong>: Loan amount</li>
-           <li><strong>r</strong>: Monthly rate (annual ÷ 12)</li>
-           <li><strong>n</strong>: Payments (years × 12)</li>
-         </ul>
-         <br>
-         Assumes fixed rate, no fees. Consult your lender for exact terms.
-       </p>
-     </details>
-   </div>
-   <div class="download-section">
-     <p>Use offline with our Chrome extension!</p>
-     <a href="LoanCalcPro.zip" download>Download Extension</a>
-     <details>
-       <summary>Installation Instructions</summary>
-       <p>
-         1. Unzip the downloaded file.<br>
-         2. Open Chrome, go to chrome://extensions/.<br>
-         3. Enable "Developer mode" (top-right).<br>
-         4. Click "Load unpacked," select the unzipped folder.<br>
-         5. Click the extension icon to use!
-       </p>
-     </details>
-   </div>
-   <div class="affiliate">
-     <p>Compare loans with <a href="#" target="_blank">LendingTree</a>!</p>
-   </div>
-   <script>
-     function calculate() {
-       let principal = parseFloat(document.getElementById("principal").value);
-       let rate = parseFloat(document.getElementById("rate").value);
-       let years = parseFloat(document.getElementById("years").value);
-       let currency = document.getElementById("currency").value;
- 
-       if (isNaN(principal) || isNaN(rate) || isNaN(years)) {
-         document.getElementById("result").innerText = "Please enter valid numbers.";
-         return;
-       }
- 
-       let monthlyRate = rate / 100 / 12;
-       let payments = years * 12;
-       let x = Math.pow(1 + monthlyRate, payments);
-       let monthlyPayment = (principal * monthlyRate * x) / (x - 1);
- 
-       document.getElementById("result").innerText = 
-         `Monthly Payment: ${currency}${monthlyPayment.toFixed(2)}`;
-     }
-   </script>
- </body>
- </html>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 15px;
+      background-color: #f8f9fa;
+      color: #444;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: left;
+      font-size: 28px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 20px;
+    }
+    .pitch {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+    .pitch p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .pitch ul {
+      list-style: none;
+      padding-left: 15px;
+    }
+    .pitch li {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+    .calculator {
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      min-height: 44px;
+      box-sizing: border-box;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #222;
+    }
+    details {
+      margin-top: 15px;
+      padding: 12px;
+      background: #f9f9fa;
+      border-radius: 4px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    details p, details li {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .download-section {
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+    .download-section p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .download-section a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+      min-height: 44px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .download-section a:hover {
+      background-color: #0056b3;
+    }
+    .affiliate {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .affiliate p {
+      font-size: 16px;
+    }
+    .affiliate a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .affiliate a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+      .pitch p, .pitch li, label, input, select, button, .download-section p, .download-section a {
+        font-size: 14px;
+      }
+      #result {
+        font-size: 16px;
+      }
+      details p, details li, summary {
+        font-size: 13px;
+      }
+      .calculator, .download-section {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Free Loan Calculator</h1>
+  <div class="pitch">
+    <p>Calculate monthly payments for mortgages, car loans, or personal loans with our free loan calculator!</p>
+    <ul>
+      <li>🏠 Mortgage payments</li>
+      <li>🚗 Car loans</li>
+      <li>💸 Personal loans</li>
+      <li>📊 Loan comparisons</li>
+    </ul>
+  </div>
+  <div class="calculator">
+    <label for="currency">Currency:</label>
+    <select id="currency">
+      <option value="$">USD ($)</option>
+      <option value="€">EUR (€)</option>
+      <option value="£">GBP (£)</option>
+      <option value="₹">INR (₹)</option>
+      <option value="¥">JPY (¥)</option>
+      <option value="A$">AUD (A$)</option>
+      <option value="C$">CAD (C$)</option>
+    </select>
+    <label for="principal">Loan Amount:</label>
+    <input type="number" id="principal" placeholder="e.g., 200000">
+    <label for="rate">Annual Interest Rate (%):</label>
+    <input type="number" id="rate" placeholder="e.g., 5" step="0.1">
+    <label for="years">Loan Term (years):</label>
+    <input type="number" id="years" placeholder="e.g., 30">
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+    <details>
+      <summary>How We Calculate</summary>
+      <p>
+        Uses the fixed-rate loan formula:
+        <br><br>
+        <strong>M = P × [r(1+r)^n] / [(1+r)^n - 1]</strong>
+        <br><br>
+        Where:
+        <ul>
+          <li><strong>M</strong>: Monthly payment</li>
+          <li><strong>P</strong>: Loan amount</li>
+          <li><strong>r</strong>: Monthly rate (annual ÷ 12)</li>
+          <li><strong>n</strong>: Payments (years × 12)</li>
+        </ul>
+        <br>
+        Assumes fixed rate, no fees. Consult your lender for exact terms.
+      </p>
+    </details>
+  </div>
+  <div class="download-section">
+    <p>Use offline with our Chrome extension!</p>
+    <a href="LoanCalcPro.zip" download>Download Extension</a>
+    <details>
+      <summary>Installation Instructions</summary>
+      <p>
+        1. Unzip the downloaded file.<br>
+        2. Open Chrome, go to chrome://extensions/.<br>
+        3. Enable "Developer mode" (top-right).<br>
+        4. Click "Load unpacked," select the unzipped folder.<br>
+        5. Click the extension icon to use!
+      </p>
+    </details>
+  </div>
+  <div class="affiliate">
+    <p>Compare loans with <a href="#" target="_blank">LendingTree</a>!</p>
+  </div>
+  <script>
+    function calculate() {
+      let principal = parseFloat(document.getElementById("principal").value);
+      let rate = parseFloat(document.getElementById("rate").value);
+      let years = parseFloat(document.getElementById("years").value);
+      let currency = document.getElementById("currency").value;
+
+      if (isNaN(principal) || isNaN(rate) || isNaN(years)) {
+        document.getElementById("result").innerText = "Please enter valid numbers.";
+        return;
+      }
+
+      let monthlyRate = rate / 100 / 12;
+      let payments = years * 12;
+      let x = Math.pow(1 + monthlyRate, payments);
+      let monthlyPayment = (principal * monthlyRate * x) / (x - 1);
+
+      document.getElementById("result").innerText = 
+        `Monthly Payment: ${currency}${monthlyPayment.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
